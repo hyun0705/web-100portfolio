@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>예약하기 | VERTEX TOWER</title>
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/reservation.css">
+</head>
+<body class="page-reservation">
+    <!-- Header -->
+    <header class="header header-dark" id="header">
+        <div class="header-container">
+            <a href="index.html" class="logo">VERTEX TOWER</a>
+            <nav class="nav">
+                <ul class="nav-menu">
+                    <li><a href="index.html#intro">소개</a></li>
+                    <li><a href="index.html#observatory">전망대</a></li>
+                    <li><a href="index.html#skylounge">스카이라운지</a></li>
+                    <li><a href="index.html#exhibition">전시관</a></li>
+                    <li><a href="index.html#lobby">로비</a></li>
+                    <li><a href="reservation.html" class="nav-reserve active">예약하기</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul class="mobile-nav-menu">
+            <li><a href="index.html#intro">소개</a></li>
+            <li><a href="index.html#observatory">전망대</a></li>
+            <li><a href="index.html#skylounge">스카이라운지</a></li>
+            <li><a href="index.html#exhibition">전시관</a></li>
+            <li><a href="index.html#lobby">로비</a></li>
+            <li><a href="reservation.html" class="nav-reserve">예약하기</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <main class="reservation-main">
+        <!-- Page Header -->
+        <section class="reservation-hero">
+            <div class="reservation-hero-bg" style="background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&q=80')"></div>
+            <div class="reservation-hero-overlay"></div>
+            <div class="reservation-hero-content">
+                <h1 class="reservation-title">온라인 예약</h1>
+                <p class="reservation-subtitle">VERTEX TOWER 방문을 예약하세요</p>
+            </div>
+        </section>
+
+        <!-- Reservation Form Section -->
+        <section class="reservation-section">
+            <div class="reservation-container">
+                <!-- Ticket Info -->
+                <div class="ticket-info">
+                    <h2 class="ticket-title">입장권 안내</h2>
+
+                    <div class="ticket-cards">
+                        <div class="ticket-card" data-ticket="basic">
+                            <span class="ticket-badge">기본</span>
+                            <h3 class="ticket-name">전망대 입장권</h3>
+                            <p class="ticket-desc">23층 전망대 입장</p>
+                            <div class="ticket-prices">
+                                <div class="ticket-price-row">
+                                    <span>성인</span>
+                                    <span class="price">15,000원</span>
+                                </div>
+                                <div class="ticket-price-row">
+                                    <span>청소년</span>
+                                    <span class="price">12,000원</span>
+                                </div>
+                                <div class="ticket-price-row">
+                                    <span>어린이</span>
+                                    <span class="price">10,000원</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ticket-card featured" data-ticket="combo">
+                            <span class="ticket-badge">추천</span>
+                            <h3 class="ticket-name">전망대 + 스카이라운지</h3>
+                            <p class="ticket-desc">22~23층 자유이용</p>
+                            <div class="ticket-prices">
+                                <div class="ticket-price-row">
+                                    <span>성인</span>
+                                    <span class="price">25,000원</span>
+                                </div>
+                                <div class="ticket-price-row">
+                                    <span>청소년</span>
+                                    <span class="price">20,000원</span>
+                                </div>
+                                <div class="ticket-price-row">
+                                    <span>어린이</span>
+                                    <span class="price">18,000원</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ticket-card" data-ticket="vip">
+                            <span class="ticket-badge">프리미엄</span>
+                            <h3 class="ticket-name">VIP 패키지</h3>
+                            <p class="ticket-desc">전층 이용 + 기념품 증정</p>
+                            <div class="ticket-prices">
+                                <div class="ticket-price-row">
+                                    <span>성인</span>
+                                    <span class="price">50,000원</span>
+                                </div>
+                                <div class="ticket-price-row">
+                                    <span>청소년</span>
+                                    <span class="price">45,000원</span>
+                                </div>
+                                <div class="ticket-price-row">
+                                    <span>어린이</span>
+                                    <span class="price">40,000원</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="ticket-help">위 티켓 중 하나를 선택해주세요</p>
+                </div>
+
+                <!-- Reservation Form -->
+                <div class="reservation-form-wrapper">
+                    <h2 class="form-title">예약 정보 입력</h2>
+                    <form class="reservation-form" id="reservationForm">
+                        <div class="form-group">
+                            <label for="visitDate">방문 날짜</label>
+                            <input type="date" id="visitDate" name="visitDate" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="visitTime">방문 시간</label>
+                            <select id="visitTime" name="visitTime" required>
+                                <option value="">시간 선택</option>
+                                <option value="10:00">10:00</option>
+                                <option value="11:00">11:00</option>
+                                <option value="12:00">12:00</option>
+                                <option value="13:00">13:00</option>
+                                <option value="14:00">14:00</option>
+                                <option value="15:00">15:00</option>
+                                <option value="16:00">16:00</option>
+                                <option value="17:00">17:00</option>
+                                <option value="18:00">18:00</option>
+                                <option value="19:00">19:00</option>
+                                <option value="20:00">20:00</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group" style="display: none;">
+                            <label for="ticketType">티켓 종류</label>
+                            <select id="ticketType" name="ticketType" required>
+                                <option value="">티켓 선택</option>
+                                <option value="basic">전망대 입장권</option>
+                                <option value="combo">전망대 + 스카이라운지</option>
+                                <option value="vip">VIP 패키지</option>
+                            </select>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="adultCount">성인</label>
+                                <select id="adultCount" name="adultCount">
+                                    <option value="0">0명</option>
+                                    <option value="1">1명</option>
+                                    <option value="2" selected>2명</option>
+                                    <option value="3">3명</option>
+                                    <option value="4">4명</option>
+                                    <option value="5">5명</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="youthCount">청소년</label>
+                                <select id="youthCount" name="youthCount">
+                                    <option value="0" selected>0명</option>
+                                    <option value="1">1명</option>
+                                    <option value="2">2명</option>
+                                    <option value="3">3명</option>
+                                    <option value="4">4명</option>
+                                    <option value="5">5명</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="childCount">어린이</label>
+                                <select id="childCount" name="childCount">
+                                    <option value="0" selected>0명</option>
+                                    <option value="1">1명</option>
+                                    <option value="2">2명</option>
+                                    <option value="3">3명</option>
+                                    <option value="4">4명</option>
+                                    <option value="5">5명</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="name">예약자 이름</label>
+                            <input type="text" id="name" name="name" placeholder="이름을 입력하세요" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">연락처</label>
+                            <input type="tel" id="phone" name="phone" placeholder="010-0000-0000" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">이메일</label>
+                            <input type="email" id="email" name="email" placeholder="example@email.com" required>
+                        </div>
+
+                        <div class="form-notice">
+                            <h4>예약 안내사항</h4>
+                            <ul>
+                                <li>예약 확정 후 이메일로 예약 확인서가 발송됩니다.</li>
+                                <li>방문 당일 예약 확인서 또는 신분증을 지참해 주세요.</li>
+                                <li>예약 취소는 방문일 3일 전까지 가능합니다.</li>
+                                <li>악천후 시 운영이 제한될 수 있습니다.</li>
+                            </ul>
+                        </div>
+
+                        <button type="submit" class="btn-submit">예약하기</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h2 class="footer-logo">VERTEX TOWER</h2>
+                <p class="footer-tagline">서울의 새로운 랜드마크</p>
+            </div>
+            <div class="footer-links">
+                <a href="#">이용안내</a>
+                <a href="#">오시는 길</a>
+                <a href="#">문의하기</a>
+                <a href="#">개인정보처리방침</a>
+            </div>
+            <p class="footer-copyright">&copy; 2026 VERTEX TOWER. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/reservation.js"></script>
+</body>
+</html>

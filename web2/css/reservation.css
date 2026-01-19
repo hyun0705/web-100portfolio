@@ -1,0 +1,343 @@
+/* ===================================
+   VERTEX TOWER - Reservation Page
+   =================================== */
+
+.page-reservation {
+    background-color: var(--color-gray-light);
+}
+
+/* Header Dark Theme */
+.header-dark {
+    background: var(--color-white);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+.header-dark .logo {
+    color: var(--color-black);
+}
+
+.header-dark .nav-menu a {
+    color: var(--color-text);
+}
+
+.header-dark .mobile-menu-btn span {
+    background-color: var(--color-black);
+}
+
+/* Reservation Hero */
+.reservation-hero {
+    position: relative;
+    height: 40vh;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.reservation-hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+.reservation-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.5) 0%,
+        rgba(0, 0, 0, 0.7) 100%
+    );
+}
+
+.reservation-hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: var(--color-white);
+}
+
+.reservation-title {
+    font-size: clamp(var(--text-xl), 5vw, var(--text-3xl));
+    font-weight: 700;
+    letter-spacing: 4px;
+    margin-bottom: var(--spacing-sm);
+}
+
+.reservation-subtitle {
+    font-size: var(--text-md);
+    opacity: 0.9;
+}
+
+/* Reservation Section */
+.reservation-section {
+    padding: var(--spacing-3xl) 0;
+}
+
+.reservation-container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 var(--spacing-xl);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-3xl);
+}
+
+/* Ticket Info */
+.ticket-info {
+    background: var(--color-white);
+    padding: var(--spacing-2xl);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.ticket-title {
+    font-size: var(--text-lg);
+    font-weight: 700;
+    color: var(--color-black);
+    margin-bottom: var(--spacing-xl);
+}
+
+.ticket-cards {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.ticket-card {
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    padding: var(--spacing-lg);
+    transition: all var(--transition-base);
+    cursor: pointer;
+    position: relative;
+    background: var(--color-white);
+}
+
+.ticket-card:hover {
+    border-color: var(--color-primary);
+}
+
+.ticket-card.featured:not(.no-highlight) {
+    border-color: var(--color-primary);
+    background: rgba(6, 106, 171, 0.03);
+}
+
+.ticket-card.selected {
+    border-color: var(--color-primary);
+    background: rgba(6, 106, 171, 0.05);
+}
+
+.ticket-card.selected::after {
+    content: '✓';
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 24px;
+    height: 24px;
+    background: var(--color-primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.ticket-help {
+    margin-top: var(--spacing-md);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    text-align: center;
+}
+
+.ticket-badge {
+    display: inline-block;
+    font-size: var(--text-xs);
+    font-weight: 600;
+    color: var(--color-primary);
+    background: rgba(6, 106, 171, 0.1);
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: var(--spacing-sm);
+}
+
+.ticket-card.featured .ticket-badge {
+    background: rgba(6, 106, 171, 0.1);
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
+.ticket-name {
+    font-size: var(--text-base);
+    font-weight: 600;
+    color: var(--color-black);
+    margin-bottom: var(--spacing-xs);
+}
+
+.ticket-desc {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin-bottom: var(--spacing-md);
+}
+
+.ticket-prices {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.ticket-price-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: var(--text-sm);
+    color: var(--color-text);
+}
+
+.ticket-price-row .price {
+    font-weight: 600;
+    color: var(--color-primary);
+}
+
+/* Reservation Form */
+.reservation-form-wrapper {
+    background: var(--color-white);
+    padding: var(--spacing-2xl);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.form-title {
+    font-size: var(--text-lg);
+    font-weight: 700;
+    color: var(--color-black);
+    margin-bottom: var(--spacing-xl);
+}
+
+.reservation-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.form-group label {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.form-group input,
+.form-group select {
+    padding: var(--spacing-md);
+    font-size: var(--text-base);
+    font-family: inherit;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    transition: border-color var(--transition-fast);
+    background: var(--color-white);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--color-primary);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-md);
+}
+
+.form-notice {
+    background: var(--color-gray-light);
+    padding: var(--spacing-lg);
+    border-radius: 8px;
+}
+
+.form-notice h4 {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-black);
+    margin-bottom: var(--spacing-sm);
+}
+
+.form-notice ul {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.form-notice li {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    padding-left: var(--spacing-md);
+    position: relative;
+}
+
+.form-notice li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 4px;
+    height: 4px;
+    background: var(--color-text-muted);
+    border-radius: 50%;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: var(--spacing-md) var(--spacing-xl);
+    font-size: var(--text-base);
+    font-weight: 600;
+    color: var(--color-white);
+    background: var(--color-primary);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all var(--transition-base);
+}
+
+.btn-submit:hover {
+    background: var(--color-primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(6, 106, 171, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .reservation-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .reservation-hero {
+        height: 30vh;
+        min-height: 250px;
+    }
+
+    .ticket-info,
+    .reservation-form-wrapper {
+        padding: var(--spacing-lg);
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
