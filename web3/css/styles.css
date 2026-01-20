@@ -826,6 +826,8 @@ input, select, textarea {
     background: var(--gray-100);
     border-radius: var(--radius-md);
     transition: var(--transition);
+    display: flex;
+    flex-direction: column;
 }
 
 .review-card:hover {
@@ -845,6 +847,7 @@ input, select, textarea {
     color: var(--gray-700);
     line-height: 1.7;
     margin-bottom: 20px;
+    flex-grow: 1;
 }
 
 .review-author {
