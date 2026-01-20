@@ -265,7 +265,7 @@ h1, h2, h3, h4, h5, h6 {
     left: 0;
     right: 0;
     background-color: var(--color-white);
-    padding: var(--spacing-xl);
+    padding: var(--spacing-lg) var(--spacing-xl);
     transform: translateY(-100%);
     opacity: 0;
     visibility: hidden;
@@ -283,7 +283,7 @@ h1, h2, h3, h4, h5, h6 {
 .mobile-nav-menu {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-lg);
+    gap: var(--spacing-md);
 }
 
 .mobile-nav-menu a {
