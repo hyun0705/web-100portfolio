@@ -23,10 +23,12 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         // Back to Top visibility
-        if (window.scrollY > 500) {
-            backToTop.classList.add('visible');
-        } else {
-            backToTop.classList.remove('visible');
+        if (backToTop) {
+            if (window.scrollY > 500) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
         }
     }
 
@@ -53,12 +55,14 @@ document.addEventListener('DOMContentLoaded', function() {
     // ========================================
     // Back to Top
     // ========================================
-    backToTop.addEventListener('click', function() {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
+    if (backToTop) {
+        backToTop.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
-    });
+    }
 
     // ========================================
     // Number Counter Animation

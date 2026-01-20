@@ -49,7 +49,13 @@ body {
     color: var(--gray-900);
     background-color: var(--white);
     overflow-x: hidden;
+    word-break: keep-all;
+    overflow-wrap: break-word;
 }
+
+/* PC/Mobile Break Classes */
+.pc-only { display: inline; }
+.mobile-only { display: none; }
 
 a {
     text-decoration: none;
@@ -186,7 +192,8 @@ input, select, textarea {
     justify-content: space-between;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 0 20px;
+    height: 100px;
 }
 
 .logo {
@@ -465,6 +472,7 @@ input, select, textarea {
     font-size: 48px;
     font-weight: 800;
     color: var(--primary);
+    font-variant-numeric: tabular-nums;
 }
 
 .trust-unit {
@@ -959,23 +967,31 @@ input, select, textarea {
 .footer {
     background: var(--gray-900);
     color: var(--white);
-    padding: 80px 0 40px;
+    padding: 40px 0 24px;
 }
 
 .footer-content {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr 1fr 1fr;
-    gap: 60px;
-    margin-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+    text-align: center;
 }
 
 .footer-logo {
     display: flex;
     align-items: center;
     gap: 8px;
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 700;
-    margin-bottom: 20px;
+}
+
+.footer-contact {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .footer-logo .logo-icon {
@@ -1009,9 +1025,17 @@ input, select, textarea {
 }
 
 .footer-contact p {
-    font-size: 14px;
+    font-size: 13px;
     color: var(--gray-500);
-    margin-bottom: 8px;
+    margin-bottom: 0;
+}
+
+.footer-contact a {
+    color: var(--gray-500);
+}
+
+.footer-contact a:hover {
+    color: var(--primary);
 }
 
 .footer-contact strong {
@@ -1019,44 +1043,63 @@ input, select, textarea {
 }
 
 .footer-bottom {
-    padding-top: 40px;
+    padding-top: 20px;
     border-top: 1px solid var(--gray-800);
     text-align: center;
 }
 
 .footer-bottom p {
-    font-size: 14px;
+    font-size: 12px;
     color: var(--gray-600);
 }
 
 /* ========================================
-   Back to Top
+   Floating Buttons
    ======================================== */
-.back-to-top {
+.floating-buttons {
     position: fixed;
     bottom: 30px;
     right: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 99;
+}
+
+.floating-btn {
     width: 50px;
     height: 50px;
-    background: var(--primary);
-    color: var(--white);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    opacity: 0;
-    visibility: hidden;
     transition: var(--transition);
-    z-index: 99;
     box-shadow: var(--shadow-md);
 }
 
-.back-to-top.visible {
+.phone-btn {
+    background: var(--secondary);
+    color: var(--white);
+}
+
+.phone-btn:hover {
+    background: var(--secondary-light);
+    transform: translateY(-4px);
+}
+
+.top-btn {
+    background: var(--primary);
+    color: var(--white);
+    opacity: 0;
+    visibility: hidden;
+}
+
+.top-btn.visible {
     opacity: 1;
     visibility: visible;
 }
 
-.back-to-top:hover {
+.top-btn:hover {
     background: var(--primary-dark);
     transform: translateY(-4px);
 }
@@ -1065,6 +1108,10 @@ input, select, textarea {
    Responsive Design
    ======================================== */
 @media (max-width: 1024px) {
+    .header-container {
+        height: 80px;
+    }
+
     .nav,
     .header-phone {
         display: none;
@@ -1102,19 +1149,54 @@ input, select, textarea {
         gap: 40px;
     }
 
-    .footer-content {
-        grid-template-columns: 1fr 1fr;
-        gap: 40px;
-    }
 }
 
 @media (max-width: 768px) {
+    .pc-only { display: none; }
+    .mobile-only { display: inline; }
+
+    .header-container {
+        height: 60px;
+    }
+
+    .section-header,
+    .hero-content,
+    .quote-info,
+    .cta-content {
+        text-align: center;
+    }
+
+    p {
+        text-wrap: auto;
+    }
+
+    /* 섹션 패딩 축소 */
+    .trust {
+        padding: 50px 0;
+    }
+
+    .services,
+    .process,
+    .quote,
+    .reviews,
+    .cta {
+        padding: 60px 0;
+    }
+
+    .section-header {
+        margin-bottom: 32px;
+    }
+
     .section-title {
-        font-size: 28px;
+        font-size: 24px;
     }
 
     .section-subtitle {
-        font-size: 16px;
+        font-size: 14px;
+    }
+
+    .hero {
+        padding: 100px 20px 60px;
     }
 
     .hero-title {
@@ -1125,16 +1207,34 @@ input, select, textarea {
         font-size: 16px;
     }
 
+    /* 카드 패딩 축소 */
+    .service-card {
+        padding: 24px 20px;
+    }
+
+    .service-title {
+        font-size: 20px;
+    }
+
     .trust-grid {
-        gap: 30px;
+        gap: 24px;
     }
 
     .trust-number {
-        font-size: 36px;
+        font-size: 32px;
+    }
+
+    .trust-label {
+        font-size: 13px;
     }
 
     .process-timeline {
         grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .step-content {
+        padding: 16px;
     }
 
     .form-row {
@@ -1142,21 +1242,65 @@ input, select, textarea {
     }
 
     .quote-form {
-        padding: 30px 20px;
+        padding: 24px 16px;
+    }
+
+    .quote-benefits {
+        align-items: center;
     }
 
     .review-card {
-        width: 300px;
+        width: 280px;
+        padding: 20px;
+    }
+
+    .reviews-track {
+        animation-duration: 7s;
     }
 
     .cta-title {
-        font-size: 28px;
+        font-size: 24px;
     }
 
-    .footer-content {
-        grid-template-columns: 1fr;
-        gap: 40px;
-        text-align: center;
+    .cta-desc {
+        font-size: 14px;
+    }
+
+    /* FAQ Mobile */
+    .faq {
+        padding: 60px 0;
+    }
+
+    .faq-question {
+        padding: 18px 16px;
+        font-size: 15px;
+    }
+
+    .faq-answer p {
+        padding: 0 16px 18px;
+        font-size: 14px;
+    }
+
+    .mobile-menu {
+        padding-top: 60px;
+    }
+
+    .mobile-nav-menu li {
+        margin: 16px 0;
+    }
+
+    .mobile-nav-menu a {
+        font-size: 20px;
+    }
+
+    .floating-buttons {
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .floating-btn {
+        width: 44px;
+        height: 44px;
     }
 }
 
@@ -1196,13 +1340,6 @@ input, select, textarea {
     .cta-buttons .btn {
         width: 100%;
         max-width: 280px;
-    }
-
-    .back-to-top {
-        bottom: 20px;
-        right: 20px;
-        width: 44px;
-        height: 44px;
     }
 }
 
