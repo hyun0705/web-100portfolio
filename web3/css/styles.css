@@ -971,11 +971,21 @@ input, select, textarea {
 }
 
 .footer-content {
+    margin-bottom: 24px;
+}
+
+.footer-pc {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 60px;
+}
+
+.footer-mobile {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 16px;
-    margin-bottom: 24px;
     text-align: center;
 }
 
@@ -1004,11 +1014,10 @@ input, select, textarea {
     line-height: 1.7;
 }
 
-.footer-links h4,
-.footer-contact h4 {
-    font-size: 16px;
+.footer-links h4 {
+    font-size: 14px;
     font-weight: 600;
-    margin-bottom: 24px;
+    margin-bottom: 16px;
 }
 
 .footer-links ul li {
@@ -1024,18 +1033,27 @@ input, select, textarea {
     color: var(--primary);
 }
 
-.footer-contact p {
+.footer-contact p,
+.footer-contact-pc p {
     font-size: 13px;
     color: var(--gray-500);
-    margin-bottom: 0;
+    margin-bottom: 8px;
 }
 
-.footer-contact a {
+.footer-contact a,
+.footer-contact-pc a {
     color: var(--gray-500);
 }
 
-.footer-contact a:hover {
+.footer-contact a:hover,
+.footer-contact-pc a:hover {
     color: var(--primary);
+}
+
+.footer-contact-pc h4 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 16px;
 }
 
 .footer-contact strong {
