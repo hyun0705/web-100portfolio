@@ -1289,11 +1289,19 @@ h1, h2, h3, h4, h5, h6 {
         padding: 0 var(--spacing-lg);
     }
 
-    /* Mobile text alignment */
+    /* Mobile text alignment - 모바일 가운데 정렬 */
     .section-title,
     .section-title-sm,
     .about-text,
-    .about-desc {
+    .about-desc,
+    .cta-content,
+    .cta-text,
+    .feature-item,
+    .stat-item,
+    .footer-brand,
+    .footer-col,
+    .footer-bottom,
+    p {
         text-align: center;
     }
 

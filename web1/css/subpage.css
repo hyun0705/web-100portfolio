@@ -920,12 +920,24 @@
         padding: 30px;
     }
 
-    /* Mobile text alignment */
+    /* Mobile text alignment - 모바일 가운데 정렬 */
     .about-intro-text,
     .vm-item,
     .philosophy-item,
-    .collection-card-content {
+    .collection-card-content,
+    .contact-info,
+    .contact-item,
+    .contact-item-content,
+    .timeline-content,
+    .section-desc-center,
+    .lead-text,
+    p {
         text-align: center;
+    }
+
+    .contact-item {
+        flex-direction: column;
+        align-items: center;
     }
 
     .collection-card-features {
