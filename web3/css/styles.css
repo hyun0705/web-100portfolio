@@ -975,10 +975,9 @@ input, select, textarea {
 }
 
 .footer-pc {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 60px;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 40px;
 }
 
 .footer-mobile {
