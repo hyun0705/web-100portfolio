@@ -981,11 +981,21 @@ input, select, textarea {
 }
 
 .footer-mobile {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
-    text-align: center;
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .footer-pc {
+        display: none;
+    }
+
+    .footer-mobile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        text-align: center;
+    }
 }
 
 .footer-logo {
