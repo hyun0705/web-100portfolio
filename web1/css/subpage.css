@@ -78,6 +78,7 @@
     margin-bottom: var(--spacing-lg);
     color: #FFFFFF;
     text-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
+    text-wrap: balance;
 }
 
 .breadcrumb {
@@ -115,6 +116,7 @@
     color: var(--color-gray);
     max-width: 600px;
     margin: -20px auto 50px;
+    text-wrap: balance;
 }
 
 .section-dark .section-desc-center {
@@ -135,6 +137,7 @@
     color: var(--color-black);
     margin-bottom: var(--spacing-lg);
     line-height: 1.7;
+    text-wrap: balance;
 }
 
 .about-intro-text p {
@@ -142,12 +145,39 @@
     line-height: 1.9;
     color: var(--color-gray);
     margin-bottom: var(--spacing-md);
+    text-wrap: balance;
+}
+
+.about-intro-image {
+    position: relative;
+    overflow: hidden;
 }
 
 .about-intro-image img {
     width: 100%;
     height: 500px;
     object-fit: cover;
+    transition: transform var(--transition-slow);
+}
+
+.about-intro-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.12);
+    transition: opacity var(--transition-medium);
+    pointer-events: none;
+}
+
+.about-intro-image:hover::after {
+    opacity: 0;
+}
+
+.about-intro-image:hover img {
+    transform: scale(1.03);
 }
 
 /* Vision & Mission */
@@ -160,6 +190,8 @@
 .vm-item {
     padding: 50px;
     background-color: var(--color-white);
+    display: flex;
+    flex-direction: column;
 }
 
 .vm-label {
@@ -185,6 +217,7 @@
     font-size: 16px;
     line-height: 1.8;
     color: var(--color-gray);
+    text-wrap: balance;
 }
 
 /* Timeline */
@@ -246,6 +279,7 @@
     font-size: 15px;
     line-height: 1.7;
     color: var(--color-gray);
+    text-wrap: balance;
 }
 
 /* Team Stats */
@@ -263,6 +297,12 @@
     max-width: 1100px;
 }
 
+.team-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .team-stat-number {
     display: block;
     font-family: var(--font-display);
@@ -270,6 +310,8 @@
     font-weight: 500;
     color: var(--color-gold);
     margin-bottom: var(--spacing-sm);
+    font-variant-numeric: tabular-nums;
+    font-feature-settings: "tnum";
 }
 
 .team-stat-label {
@@ -277,6 +319,7 @@
     color: var(--color-gray-light);
     text-transform: uppercase;
     letter-spacing: 1px;
+    margin-top: auto;
 }
 
 /* Philosophy Page */
@@ -289,6 +332,8 @@
 .philosophy-item {
     text-align: center;
     padding: 50px 30px;
+    display: flex;
+    flex-direction: column;
 }
 
 .philosophy-number {
@@ -310,6 +355,8 @@
     font-size: 15px;
     line-height: 1.8;
     color: var(--color-gray);
+    margin-top: auto;
+    text-wrap: balance;
 }
 
 /* Quote Section */
@@ -327,6 +374,7 @@
     max-width: 900px;
     margin: 0 auto var(--spacing-lg);
     line-height: 1.5;
+    text-wrap: balance;
 }
 
 .quote-author {
@@ -338,6 +386,14 @@
 }
 
 /* Collections Page */
+.collection-filter {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-xxl);
+    flex-wrap: wrap;
+}
+
 .collections-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -348,9 +404,59 @@
     position: relative;
     overflow: hidden;
     background-color: var(--color-cream);
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInCard 0.6s ease forwards;
+    display: flex;
+    flex-direction: column;
+}
+
+.collection-card:nth-child(1) { animation-delay: 0.1s; }
+.collection-card:nth-child(2) { animation-delay: 0.2s; }
+.collection-card:nth-child(3) { animation-delay: 0.3s; }
+.collection-card:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes fadeInCard {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.collection-card.hidden {
+    display: none;
+}
+
+.collection-pagination {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-xxl);
+}
+
+.page-num {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-accent);
+    font-size: 14px;
+    border: 1px solid var(--color-silver);
+    color: var(--color-gray);
+    cursor: pointer;
+    transition: all var(--transition-medium);
+}
+
+.page-num:hover,
+.page-num.active {
+    background-color: var(--color-black);
+    border-color: var(--color-black);
+    color: var(--color-white);
 }
 
 .collection-card-image {
+    position: relative;
     height: 400px;
     overflow: hidden;
 }
@@ -362,12 +468,31 @@
     transition: transform var(--transition-slow);
 }
 
+.collection-card-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.12);
+    transition: opacity var(--transition-medium);
+    pointer-events: none;
+}
+
+.collection-card:hover .collection-card-image::after {
+    opacity: 0;
+}
+
 .collection-card:hover .collection-card-image img {
     transform: scale(1.05);
 }
 
 .collection-card-content {
     padding: 40px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
 .collection-card-label {
@@ -394,12 +519,15 @@
     line-height: 1.8;
     color: var(--color-gray);
     margin-bottom: var(--spacing-lg);
+    flex-grow: 1;
+    text-wrap: balance;
 }
 
 .collection-card-features {
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
+    margin-top: auto;
 }
 
 .collection-card-features span {
@@ -452,6 +580,7 @@
 }
 
 .project-card-image {
+    position: relative;
     height: 300px;
     overflow: hidden;
 }
@@ -461,6 +590,23 @@
     height: 100%;
     object-fit: cover;
     transition: transform var(--transition-slow);
+}
+
+.project-card-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.15);
+    z-index: 1;
+    transition: opacity var(--transition-medium);
+    pointer-events: none;
+}
+
+.project-card:hover .project-card-image::before {
+    opacity: 0;
 }
 
 .project-card:hover .project-card-image img {
@@ -513,6 +659,7 @@
     line-height: 1.8;
     color: var(--color-gray);
     margin-bottom: var(--spacing-xl);
+    text-wrap: balance;
 }
 
 .contact-details {
@@ -548,6 +695,7 @@
     font-size: 15px;
     color: var(--color-gray);
     line-height: 1.6;
+    text-wrap: balance;
 }
 
 /* Contact Form */
@@ -770,5 +918,17 @@
 
     .vm-item {
         padding: 30px;
+    }
+
+    /* Mobile text alignment */
+    .about-intro-text,
+    .vm-item,
+    .philosophy-item,
+    .collection-card-content {
+        text-align: center;
+    }
+
+    .collection-card-features {
+        justify-content: center;
     }
 }

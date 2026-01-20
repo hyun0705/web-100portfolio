@@ -16,16 +16,16 @@
     <!-- Header -->
     <header class="header" id="header">
         <div class="header-container">
-            <a href="/" class="logo">
+            <a href="./" class="logo">
                 <span class="logo-text">AURELIA</span>
             </a>
             <nav class="nav">
                 <ul class="nav-menu">
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="philosophy.html">Philosophy</a></li>
-                    <li><a href="collections.html">Collections</a></li>
-                    <li><a href="projects.html">Projects</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="about/">About Us</a></li>
+                    <li><a href="philosophy/">Philosophy</a></li>
+                    <li><a href="collections/">Collections</a></li>
+                    <li><a href="projects/">Projects</a></li>
+                    <li><a href="contact/">Contact</a></li>
                 </ul>
             </nav>
             <button class="mobile-menu-btn" id="mobileMenuBtn">
@@ -39,11 +39,12 @@
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
         <ul class="mobile-nav-menu">
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="philosophy.html">Philosophy</a></li>
-            <li><a href="collections.html">Collections</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="./">Home</a></li>
+            <li><a href="about/">About Us</a></li>
+            <li><a href="philosophy/">Philosophy</a></li>
+            <li><a href="collections/">Collections</a></li>
+            <li><a href="projects/">Projects</a></li>
+            <li><a href="contact/">Contact</a></li>
         </ul>
     </div>
 
@@ -112,7 +113,7 @@
                     <h2 class="section-title">Crafting Timeless<br>Comfort</h2>
                     <div class="about-desc">
                         <p>AURELIA는 단순한 가구가 아닌 공간의 품격을 완성하는 의자를 만듭니다.</p>
-                        <p>장시간 사용에도 흐트러지지 않는 균형, 시간이 지나도 가치가 유지되는 디자인. 그것이 AURELIA의 기준입니다.</p>
+                        <p>장시간 사용에도 흐트러지지 않는 균형,<br>시간이 지나도 가치가 유지되는 디자인.<br>그것이 AURELIA의 기준입니다.</p>
                     </div>
                 </div>
                 <div class="about-image">
@@ -132,12 +133,13 @@
             <div class="stats-grid">
                 <div class="stat-item">
                     <span class="stat-label">Established</span>
-                    <span class="stat-value">February 14, 2026</span>
+                    <span class="stat-meta">&nbsp;</span>
+                    <span class="stat-value stat-value-text">February 14, 2026</span>
                 </div>
                 <div class="stat-item">
                     <span class="stat-label">Team</span>
                     <span class="stat-meta">As of Oct 31, 2026</span>
-                    <span class="stat-value"><span class="stat-number" data-target="9">0</span> Professionals</span>
+                    <span class="stat-value"><span class="stat-number" data-target="9">0</span> <span class="stat-unit">Professionals</span></span>
                 </div>
                 <div class="stat-item">
                     <span class="stat-label">Revenue (₩B)</span>
@@ -153,10 +155,13 @@
         <div class="cta-bg" style="background-image: url('https://images.unsplash.com/photo-1519710164239-da123dc03ef4?w=1920&q=80')"></div>
         <div class="cta-overlay"></div>
         <div class="container">
-            <div class="cta-content">
-                <h2 class="cta-title">Designed Without<br>Compromise</h2>
-                <p class="cta-text">더 이상 타협하지 마세요.<br>AURELIA SEATING은 소재, 구조, 마감 모든 단계에서 프리미엄 기준을 적용합니다.<br>편안함은 선택이 아니라 설계의 결과입니다.</p>
-                <a href="#collections" class="btn-primary">Explore Collection</a>
+            <div class="cta-grid">
+                <div class="cta-content">
+                    <h2 class="cta-title">Designed Without Compromise</h2>
+                    <p class="cta-text">더 이상 타협하지 마세요.<br>AURELIA SEATING은 소재, 구조, 마감 모든 단계에서 프리미엄 기준을 적용합니다.<br>편안함은 선택이 아니라 설계의 결과입니다.</p>
+                    <a href="#collections" class="btn-primary">Explore Collection</a>
+                </div>
+                <div class="cta-empty"></div>
             </div>
         </div>
     </section>
@@ -164,7 +169,7 @@
     <!-- Features Section -->
     <section class="section features" id="collections">
         <div class="container">
-            <h2 class="section-title-center">Why AURELIA</h2>
+            <h2 class="section-title-center">WHY AURELIA</h2>
             <div class="features-grid">
                 <div class="feature-item">
                     <div class="feature-icon">
@@ -213,7 +218,7 @@
     <!-- Perfect For Section -->
     <section class="section perfect-for" id="projects">
         <div class="container">
-            <h2 class="section-title-center">Perfect For</h2>
+            <h2 class="section-title-center">PERFECT FOR</h2>
             <div class="perfect-grid">
                 <div class="perfect-item">
                     <div class="perfect-image">
@@ -270,16 +275,16 @@
                     </div>
                     <div class="footer-col">
                         <h4>Contact</h4>
-                        <p>T. +82 2 1234 5678<br>F. +82 2 1234 5679<br>E. contact@aurelia.co.kr</p>
+                        <p><a href="tel:+82212345678">T. +82 2 1234 5678</a><br>F. +82 2 1234 5679<br><a href="mailto:contact@aurelia.co.kr">E. contact@aurelia.co.kr</a></p>
                     </div>
                     <div class="footer-col">
                         <h4>Menu</h4>
                         <ul class="footer-menu">
-                            <li><a href="about.html">About Us</a></li>
-                            <li><a href="philosophy.html">Philosophy</a></li>
-                            <li><a href="collections.html">Collections</a></li>
-                            <li><a href="projects.html">Projects</a></li>
-                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="about/">About Us</a></li>
+                            <li><a href="philosophy/">Philosophy</a></li>
+                            <li><a href="collections/">Collections</a></li>
+                            <li><a href="projects/">Projects</a></li>
+                            <li><a href="contact/">Contact</a></li>
                         </ul>
                     </div>
                 </div>
@@ -290,12 +295,19 @@
         </div>
     </footer>
 
-    <!-- Back to Top Button -->
-    <button class="back-to-top" id="backToTop" aria-label="맨 위로">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="18 15 12 9 6 15"></polyline>
-        </svg>
-    </button>
+    <!-- Floating Buttons -->
+    <div class="floating-buttons">
+        <a href="tel:+82212345678" class="floating-btn phone-btn" aria-label="전화 문의">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+        </a>
+        <button class="floating-btn top-btn" id="backToTop" aria-label="맨 위로">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="18 15 12 9 6 15"></polyline>
+            </svg>
+        </button>
+    </div>
 
     <script src="js/script.js"></script>
 </body>

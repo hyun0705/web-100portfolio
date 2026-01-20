@@ -13,6 +13,11 @@ document.addEventListener('DOMContentLoaded', () => {
         initHeroSlider();
     }
 
+    // Only init collection filter on pages that have it
+    if (document.querySelector('.collection-filter')) {
+        initCollectionFilter();
+    }
+
     initScrollAnimations();
     initCounterAnimation();
     initSmoothScroll();
@@ -162,8 +167,8 @@ function initScrollAnimations() {
     const animatedElements = document.querySelectorAll(
         // Main page elements
         '.section-title, .section-title-sm, .section-title-center, ' +
-        '.about-desc, .about-image, .stat-item, .feature-item, ' +
-        '.perfect-item, .cta-content, .footer-content, ' +
+        '.stats-subtitle, .about-desc, .about-image, .stat-item, .feature-item, ' +
+        '.perfect-item, .cta-content, .cta-grid, .footer-content, ' +
         // Subpage elements
         '.about-intro-text, .about-intro-image, .vm-item, ' +
         '.timeline-item, .team-stats, .team-stat, ' +
@@ -327,6 +332,38 @@ function initBackToTop() {
         window.scrollTo({
             top: 0,
             behavior: 'smooth'
+        });
+    });
+}
+
+/**
+ * Collection Filter
+ */
+function initCollectionFilter() {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.collection-card');
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Update active button
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const filter = btn.dataset.filter;
+
+            // Filter cards with animation
+            cards.forEach((card, index) => {
+                const category = card.dataset.category;
+
+                if (filter === 'all' || category === filter) {
+                    card.classList.remove('hidden');
+                    card.style.animation = 'none';
+                    card.offsetHeight; // Trigger reflow
+                    card.style.animation = `fadeInCard 0.6s ease forwards ${index * 0.1}s`;
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
         });
     });
 }
