@@ -1318,6 +1318,13 @@ h1, h2, h3, h4, h5, h6 {
         display: inline;
     }
 
+    /* 모바일에서 text-wrap: balance 해제 */
+    p, .hero-desc, .about-desc p, .cta-text, .feature-desc,
+    .vm-desc, .philosophy-desc, .quote-text, .collection-card-desc,
+    .about-intro-text p, .section-desc-center, .contact-info > p {
+        text-wrap: auto;
+    }
+
     .hero-controls {
         bottom: 40px;
         gap: var(--spacing-md);
