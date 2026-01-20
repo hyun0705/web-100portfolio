@@ -771,7 +771,7 @@ input, select, textarea {
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-top: 28px;
+    margin-top: 20px;
     margin-bottom: 24px;
 }
 
