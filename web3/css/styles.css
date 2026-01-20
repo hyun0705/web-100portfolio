@@ -1021,6 +1021,7 @@ input, select, textarea {
     font-size: 14px;
     color: var(--gray-500);
     line-height: 1.7;
+    margin-top: 16px;
 }
 
 .footer-links h4 {
