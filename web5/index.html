@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="POWER GYM - 당신의 한계를 넘어서는 프리미엄 PT 전문 헬스장">
+    <title>POWER GYM | 프리미엄 PT 전문 피트니스</title>
+
+    <!-- Fonts -->
+    <link href="https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-inner">
+            <a href="/" class="logo">
+                <span class="logo-text">POWER</span>
+                <span class="logo-accent">GYM</span>
+            </a>
+            <nav class="nav">
+                <ul class="nav-menu">
+                    <li class="has-dropdown">
+                        <a href="#about">브랜드</a>
+                        <ul class="dropdown">
+                            <li><a href="#">브랜드 미션</a></li>
+                            <li><a href="#">브랜드 액티비티</a></li>
+                            <li><a href="#">브랜드 히스토리</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="#facility">지점소개</a>
+                        <ul class="dropdown">
+                            <li><a href="#">강남 본점</a></li>
+                            <li><a href="#">여의도점</a></li>
+                            <li><a href="#">송파 잠실점</a></li>
+                            <li><a href="#">판교점</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="#program">프로그램</a>
+                        <ul class="dropdown">
+                            <li><a href="#">퍼스널 트레이닝</a></li>
+                            <li><a href="#">필라테스</a></li>
+                            <li><a href="#">체형교정</a></li>
+                            <li><a href="#">다이어트</a></li>
+                            <li><a href="#">그룹 PT</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="#review">커뮤니티</a>
+                        <ul class="dropdown">
+                            <li><a href="#">공지사항</a></li>
+                            <li><a href="#">이벤트</a></li>
+                            <li><a href="#">고객의 소리</a></li>
+                            <li><a href="#">자주하는 질문</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-dropdown">
+                        <a href="#contact">제휴문의</a>
+                        <ul class="dropdown">
+                            <li><a href="#">제휴업체 신청</a></li>
+                            <li><a href="#">위탁운영</a></li>
+                            <li><a href="#">채용안내</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+            <a href="#contact" class="header-cta">상담 신청</a>
+            <button class="mobile-menu-btn" aria-label="메뉴 열기">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <ul class="mobile-nav">
+            <li class="mobile-has-sub">
+                <a href="#about" class="mobile-menu-toggle">브랜드 <i class="fas fa-chevron-down"></i></a>
+                <ul class="mobile-sub">
+                    <li><a href="#">브랜드 미션</a></li>
+                    <li><a href="#">브랜드 액티비티</a></li>
+                    <li><a href="#">브랜드 히스토리</a></li>
+                </ul>
+            </li>
+            <li class="mobile-has-sub">
+                <a href="#facility" class="mobile-menu-toggle">지점소개 <i class="fas fa-chevron-down"></i></a>
+                <ul class="mobile-sub">
+                    <li><a href="#">강남 본점</a></li>
+                    <li><a href="#">여의도점</a></li>
+                    <li><a href="#">송파 잠실점</a></li>
+                    <li><a href="#">판교점</a></li>
+                </ul>
+            </li>
+            <li class="mobile-has-sub">
+                <a href="#program" class="mobile-menu-toggle">프로그램 <i class="fas fa-chevron-down"></i></a>
+                <ul class="mobile-sub">
+                    <li><a href="#">퍼스널 트레이닝</a></li>
+                    <li><a href="#">필라테스</a></li>
+                    <li><a href="#">체형교정</a></li>
+                    <li><a href="#">다이어트</a></li>
+                    <li><a href="#">그룹 PT</a></li>
+                </ul>
+            </li>
+            <li class="mobile-has-sub">
+                <a href="#review" class="mobile-menu-toggle">커뮤니티 <i class="fas fa-chevron-down"></i></a>
+                <ul class="mobile-sub">
+                    <li><a href="#">공지사항</a></li>
+                    <li><a href="#">이벤트</a></li>
+                    <li><a href="#">고객의 소리</a></li>
+                    <li><a href="#">자주하는 질문</a></li>
+                </ul>
+            </li>
+            <li class="mobile-has-sub">
+                <a href="#contact" class="mobile-menu-toggle">제휴문의 <i class="fas fa-chevron-down"></i></a>
+                <ul class="mobile-sub">
+                    <li><a href="#">제휴업체 신청</a></li>
+                    <li><a href="#">위탁운영</a></li>
+                    <li><a href="#">채용안내</a></li>
+                </ul>
+            </li>
+            <li><a href="#contact" class="mobile-cta">상담 신청</a></li>
+        </ul>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-bg">
+                <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1920&q=80" alt="헬스장 내부">
+            </div>
+            <div class="hero-content">
+                <p class="hero-subtitle fade-in">PREMIUM FITNESS CENTER</p>
+                <h1 class="hero-title fade-in">
+                    당신의 <span class="circle-text">한계<svg class="circle-svg" viewBox="0 0 100 50" preserveAspectRatio="none"><ellipse cx="50" cy="25" rx="48" ry="23"/></svg></span>를<br>
+                    넘어서다
+                </h1>
+                <p class="hero-desc fade-in">
+                    체계적인 1:1 PT 프로그램과 최신 시설로<br>
+                    당신만의 목표를 달성하세요
+                </p>
+                <div class="hero-buttons fade-in">
+                    <a href="#contact" class="btn btn-primary">무료 상담 신청</a>
+                    <a href="#program" class="btn btn-outline">프로그램 보기</a>
+                </div>
+                <div class="hero-stats fade-in">
+                    <div class="stat-item">
+                        <span class="stat-number">500<span class="stat-unit">+</span></span>
+                        <span class="stat-label">회원 수</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">15</span>
+                        <span class="stat-label">전문 트레이너</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">98<span class="stat-unit">%</span></span>
+                        <span class="stat-label">회원 만족도</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-scroll">
+                <span>SCROLL</span>
+                <div class="scroll-line"></div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="about-grid">
+                <div class="about-content">
+                    <span class="section-label fade-in">ABOUT US</span>
+                    <h2 class="section-title fade-in">
+                        왜 <span class="circle-text">POWER GYM<svg class="circle-svg" viewBox="0 0 100 50" preserveAspectRatio="none"><ellipse cx="50" cy="25" rx="48" ry="23"/></svg></span>인가?
+                    </h2>
+                    <p class="about-desc fade-in">
+                        POWER GYM은 단순한 헬스장이 아닙니다.
+                        과학적인 트레이닝 방법론과 개인 맞춤형 프로그램으로
+                        당신의 목표 달성을 위한 최적의 환경을 제공합니다.
+                    </p>
+                    <div class="about-features">
+                        <div class="feature-item fade-in">
+                            <div class="feature-icon">
+                                <i class="fas fa-user-check"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>1:1 맞춤 PT</h4>
+                                <p>체형 분석부터 목표 설정까지 개인에게 최적화된 프로그램</p>
+                            </div>
+                        </div>
+                        <div class="feature-item fade-in">
+                            <div class="feature-icon">
+                                <i class="fas fa-dumbbell"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>프리미엄 장비</h4>
+                                <p>세계 최고급 브랜드의 최신 피트니스 장비 보유</p>
+                            </div>
+                        </div>
+                        <div class="feature-item fade-in">
+                            <div class="feature-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>체계적인 관리</h4>
+                                <p>주기적인 인바디 측정과 식단 관리까지 토탈 케어</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image fade-in">
+                    <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=800&q=80" alt="트레이닝 모습">
+                </div>
+            </div>
+        </section>
+
+        <!-- Program Section -->
+        <section id="program" class="program">
+            <div class="section-header">
+                <span class="section-label fade-in">PROGRAM</span>
+                <h2 class="section-title fade-in">
+                    당신에게 맞는 프로그램
+                </h2>
+                <p class="section-desc fade-in">목표와 체형에 따른 맞춤형 프로그램을 제공합니다</p>
+            </div>
+            <div class="program-grid">
+                <div class="program-card fade-in">
+                    <div class="program-image">
+                        <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=600&q=80" alt="다이어트 프로그램">
+                        <div class="program-overlay"></div>
+                    </div>
+                    <div class="program-content">
+                        <span class="program-tag">BEST</span>
+                        <h3>다이어트 PT</h3>
+                        <p>체지방 감량에 특화된 고강도 인터벌 트레이닝과 식단 관리</p>
+                        <ul class="program-list">
+                            <li>체지방 분석 및 목표 설정</li>
+                            <li>유산소 + 근력 복합 운동</li>
+                            <li>맞춤 식단 프로그램</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="program-card fade-in">
+                    <div class="program-image">
+                        <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=600&q=80" alt="벌크업 프로그램">
+                        <div class="program-overlay"></div>
+                    </div>
+                    <div class="program-content">
+                        <h3>벌크업 PT</h3>
+                        <p>근비대와 근력 향상을 위한 체계적인 웨이트 트레이닝</p>
+                        <ul class="program-list">
+                            <li>분할 운동 프로그램</li>
+                            <li>점진적 과부하 트레이닝</li>
+                            <li>단백질 섭취 가이드</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="program-card fade-in">
+                    <div class="program-image">
+                        <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=600&q=80" alt="체형 교정 프로그램">
+                        <div class="program-overlay"></div>
+                    </div>
+                    <div class="program-content">
+                        <h3>체형 교정 PT</h3>
+                        <p>거북목, 라운드숄더, 골반 틀어짐 등 체형 불균형 개선</p>
+                        <ul class="program-list">
+                            <li>자세 분석 및 진단</li>
+                            <li>교정 운동 프로그램</li>
+                            <li>스트레칭 & 근막이완</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="program-card fade-in">
+                    <div class="program-image">
+                        <img src="https://images.unsplash.com/photo-1574680096145-d05b474e2155?w=600&q=80" alt="시니어 프로그램">
+                        <div class="program-overlay"></div>
+                    </div>
+                    <div class="program-content">
+                        <h3>시니어 PT</h3>
+                        <p>50대 이상을 위한 안전하고 효과적인 건강 관리 프로그램</p>
+                        <ul class="program-list">
+                            <li>관절 가동성 운동</li>
+                            <li>근감소증 예방 트레이닝</li>
+                            <li>균형감각 향상 운동</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trainer Section -->
+        <section id="trainer" class="trainer">
+            <div class="section-header">
+                <span class="section-label fade-in">TRAINER</span>
+                <h2 class="section-title fade-in">
+                    전문 트레이너 팀
+                </h2>
+                <p class="section-desc fade-in">검증된 자격과 풍부한 경험을 갖춘 트레이너들이 함께합니다</p>
+            </div>
+            <div class="trainer-grid">
+                <div class="trainer-card fade-in">
+                    <div class="trainer-image">
+                        <img src="https://images.unsplash.com/photo-1567013127542-490d757e51fc?w=500&q=80" alt="김민수 트레이너">
+                    </div>
+                    <div class="trainer-info">
+                        <h3>김민수</h3>
+                        <span class="trainer-role">HEAD TRAINER</span>
+                        <p class="trainer-career">
+                            • 생활체육지도사 2급<br>
+                            • NASM CPT<br>
+                            • 前 국가대표 피트니스 코치
+                        </p>
+                    </div>
+                </div>
+                <div class="trainer-card fade-in">
+                    <div class="trainer-image">
+                        <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=500&q=80" alt="이서연 트레이너">
+                    </div>
+                    <div class="trainer-info">
+                        <h3>이서연</h3>
+                        <span class="trainer-role">PT MANAGER</span>
+                        <p class="trainer-career">
+                            • 체육학 석사<br>
+                            • ACE CPT<br>
+                            • 다이어트 전문 트레이너
+                        </p>
+                    </div>
+                </div>
+                <div class="trainer-card fade-in">
+                    <div class="trainer-image">
+                        <img src="https://images.unsplash.com/photo-1594381898411-846e7d193883?w=500&q=80" alt="박준혁 트레이너">
+                    </div>
+                    <div class="trainer-info">
+                        <h3>박준혁</h3>
+                        <span class="trainer-role">SENIOR TRAINER</span>
+                        <p class="trainer-career">
+                            • NSCA CSCS<br>
+                            • 스포츠재활 전문가<br>
+                            • 보디빌딩 대회 수상
+                        </p>
+                    </div>
+                </div>
+                <div class="trainer-card fade-in">
+                    <div class="trainer-image">
+                        <img src="https://images.unsplash.com/photo-1548690312-e3b507d8c110?w=500&q=80" alt="최유진 트레이너">
+                    </div>
+                    <div class="trainer-info">
+                        <h3>최유진</h3>
+                        <span class="trainer-role">TRAINER</span>
+                        <p class="trainer-career">
+                            • 필라테스 지도자 자격<br>
+                            • 체형교정 전문<br>
+                            • 여성 전문 트레이너
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Facility Section -->
+        <section id="facility" class="facility">
+            <div class="section-header">
+                <span class="section-label fade-in">FACILITY</span>
+                <h2 class="section-title fade-in">
+                    최고급 시설
+                </h2>
+                <p class="section-desc fade-in">프리미엄 장비와 쾌적한 환경에서 운동하세요</p>
+            </div>
+            <div class="facility-gallery">
+                <div class="gallery-item large fade-in">
+                    <img src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?w=1200&q=80" alt="웨이트 존">
+                    <div class="gallery-overlay">
+                        <span>WEIGHT ZONE</span>
+                    </div>
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1576678927484-cc907957088c?w=600&q=80" alt="카디오 존">
+                    <div class="gallery-overlay">
+                        <span>CARDIO ZONE</span>
+                    </div>
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=600&q=80" alt="PT 룸">
+                    <div class="gallery-overlay">
+                        <span>PT ROOM</span>
+                    </div>
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1593079831268-3381b0db4a77?w=600&q=80" alt="스트레칭 존">
+                    <div class="gallery-overlay">
+                        <span>STRETCHING ZONE</span>
+                    </div>
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="라커룸">
+                    <div class="gallery-overlay">
+                        <span>LOCKER ROOM</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Review Section -->
+        <section id="review" class="review">
+            <div class="section-header">
+                <span class="section-label fade-in">REVIEW</span>
+                <h2 class="section-title fade-in">
+                    회원들의 솔직한 후기
+                </h2>
+            </div>
+            <div class="review-slider">
+                <div class="review-track">
+                    <div class="review-card fade-in">
+                        <div class="review-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="review-text">
+                            "3개월 만에 15kg 감량에 성공했습니다. 트레이너님의 체계적인 관리와 동기부여 덕분에 포기하지 않고 목표를 달성할 수 있었어요."
+                        </p>
+                        <div class="review-author">
+                            <span class="author-name">김지영</span>
+                            <span class="author-info">다이어트 PT 3개월</span>
+                        </div>
+                    </div>
+                    <div class="review-card fade-in">
+                        <div class="review-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="review-text">
+                            "거북목과 라운드숄더가 심했는데, 체형교정 PT를 받고 나서 자세가 많이 좋아졌습니다. 일상생활에서도 통증이 사라졌어요."
+                        </p>
+                        <div class="review-author">
+                            <span class="author-name">박성호</span>
+                            <span class="author-info">체형교정 PT 2개월</span>
+                        </div>
+                    </div>
+                    <div class="review-card fade-in">
+                        <div class="review-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="review-text">
+                            "시설이 정말 깨끗하고 장비도 최신식이라 운동하는 내내 기분이 좋습니다. 트레이너분들도 전문적이고 친절해요."
+                        </p>
+                        <div class="review-author">
+                            <span class="author-name">이수민</span>
+                            <span class="author-info">벌크업 PT 4개월</span>
+                        </div>
+                    </div>
+                    <div class="review-card fade-in">
+                        <div class="review-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p class="review-text">
+                            "50대에 처음 PT를 시작했는데, 제 나이와 체력에 맞춰서 프로그램을 짜주셔서 무리 없이 운동하고 있습니다."
+                        </p>
+                        <div class="review-author">
+                            <span class="author-name">정미경</span>
+                            <span class="author-info">시니어 PT 6개월</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section id="contact" class="cta">
+            <div class="cta-bg">
+                <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=1920&q=80" alt="운동하는 모습">
+            </div>
+            <div class="cta-content">
+                <span class="section-label fade-in">GET STARTED</span>
+                <h2 class="cta-title fade-in">
+                    지금 바로<br>
+                    변화를 시작하세요
+                </h2>
+                <p class="cta-desc fade-in">
+                    무료 체험과 상담을 통해<br>
+                    당신에게 맞는 프로그램을 찾아보세요
+                </p>
+                <div class="cta-buttons fade-in">
+                    <a href="tel:+8215771234" class="btn btn-primary btn-large">
+                        <i class="fas fa-phone"></i>
+                        1577-1234
+                    </a>
+                    <a href="#" class="btn btn-outline btn-large">
+                        <i class="fas fa-calendar-check"></i>
+                        온라인 예약
+                    </a>
+                </div>
+                <div class="cta-info fade-in">
+                    <div class="info-item">
+                        <i class="fas fa-clock"></i>
+                        <span>평일 06:00 - 23:00 | 주말 09:00 - 21:00</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>서울시 강남구 테헤란로 123 파워빌딩 B1-2F</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-nav">
+                <div class="footer-col">
+                    <h4>브랜드</h4>
+                    <ul>
+                        <li><a href="#">브랜드 미션</a></li>
+                        <li><a href="#">브랜드 액티비티</a></li>
+                        <li><a href="#">브랜드 히스토리</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>지점소개</h4>
+                    <ul>
+                        <li><a href="#">강남 본점</a></li>
+                        <li><a href="#">여의도점</a></li>
+                        <li><a href="#">송파 잠실점</a></li>
+                        <li><a href="#">판교점</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>프로그램</h4>
+                    <ul>
+                        <li><a href="#">퍼스널 트레이닝</a></li>
+                        <li><a href="#">필라테스</a></li>
+                        <li><a href="#">체형교정</a></li>
+                        <li><a href="#">다이어트</a></li>
+                        <li><a href="#">그룹 PT</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>커뮤니티</h4>
+                    <ul>
+                        <li><a href="#">공지사항</a></li>
+                        <li><a href="#">이벤트</a></li>
+                        <li><a href="#">고객의 소리</a></li>
+                        <li><a href="#">자주하는 질문</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>제휴문의</h4>
+                    <ul>
+                        <li><a href="#">제휴업체 신청</a></li>
+                        <li><a href="#">위탁운영</a></li>
+                        <li><a href="#">채용안내</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>CONTACT</h4>
+                    <ul>
+                        <li><a href="tel:+8215771234">1577-1234</a></li>
+                        <li><a href="mailto:info@powergym.kr">info@powergym.kr</a></li>
+                    </ul>
+                    <div class="footer-sns">
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" aria-label="Blog"><i class="fas fa-blog"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-logo-area">
+                    <a href="/" class="footer-logo">
+                        <span class="logo-text">POWER</span>
+                        <span class="logo-accent">GYM</span>
+                    </a>
+                </div>
+                <div class="footer-info">
+                    <p>서울시 강남구 테헤란로 123 파워빌딩 B1-2F | 사업자등록번호: 123-45-67890 | 대표: 홍길동</p>
+                    <p class="copyright">© 2026 POWER GYM. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Buttons -->
+    <div class="floating-buttons">
+        <a href="tel:+8215771234" class="floating-btn phone-btn" aria-label="전화 상담">
+            <i class="fas fa-phone"></i>
+        </a>
+        <button class="floating-btn top-btn" aria-label="맨 위로">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
