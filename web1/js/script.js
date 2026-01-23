@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initCounterAnimation();
     initSmoothScroll();
     initBackToTop();
+    initSlideAnimations();
 });
 
 /**
@@ -166,7 +167,7 @@ function initHeroSlider() {
 function initScrollAnimations() {
     const animatedElements = document.querySelectorAll(
         // Main page elements
-        '.section-title, .section-title-sm, .section-title-center, ' +
+        '.section-title, .section-title-sm, .section-title-center, .section-desc-center, ' +
         '.stats-subtitle, .about-desc, .about-image, .stat-item, .feature-item, ' +
         '.perfect-item, .cta-content, .cta-grid, .footer-content, ' +
         // Subpage elements
@@ -179,23 +180,22 @@ function initScrollAnimations() {
     );
 
     // Add fade-in class to all animated elements
-    animatedElements.forEach((el, index) => {
+    animatedElements.forEach((el) => {
         el.classList.add('fade-in');
-        // Add staggered delay for grid items
-        if (el.classList.contains('feature-item') ||
-            el.classList.contains('philosophy-item') ||
-            el.classList.contains('collection-card') ||
-            el.classList.contains('project-card') ||
-            el.classList.contains('timeline-item') ||
-            el.classList.contains('team-stat') ||
-            el.classList.contains('contact-item')) {
-            el.style.transitionDelay = `${index * 0.1}s`;
-        }
+    });
+
+    // Handle staggered animations for grid items
+    const gridContainers = document.querySelectorAll('.features-grid, .perfect-grid, .stats-grid');
+    gridContainers.forEach(container => {
+        const items = container.children;
+        Array.from(items).forEach((item, index) => {
+            item.style.transitionDelay = `${index * 0.15}s`;
+        });
     });
 
     const observerOptions = {
         root: null,
-        rootMargin: '0px 0px -50px 0px',
+        rootMargin: '0px 0px -80px 0px',
         threshold: 0.1
     };
 
@@ -220,22 +220,25 @@ function initCounterAnimation() {
     const observerOptions = {
         root: null,
         rootMargin: '0px',
-        threshold: 0.5
+        threshold: 0.3
     };
 
     const animateCounter = (element) => {
         const target = parseFloat(element.dataset.target);
         const isDecimal = element.dataset.decimal === 'true';
-        const duration = 2000;
+        const duration = 2500; // Longer duration for more impact
         const startTime = performance.now();
         const startValue = 0;
+
+        // Add counting class for potential styling
+        element.classList.add('counting');
 
         const updateCounter = (currentTime) => {
             const elapsed = currentTime - startTime;
             const progress = Math.min(elapsed / duration, 1);
 
-            // Easing function (ease-out)
-            const easeOut = 1 - Math.pow(1 - progress, 3);
+            // Easing function (ease-out cubic)
+            const easeOut = 1 - Math.pow(1 - progress, 4);
             const currentValue = startValue + (target - startValue) * easeOut;
 
             if (isDecimal) {
@@ -246,6 +249,9 @@ function initCounterAnimation() {
 
             if (progress < 1) {
                 requestAnimationFrame(updateCounter);
+            } else {
+                element.classList.remove('counting');
+                element.classList.add('counted');
             }
         };
 
@@ -255,7 +261,11 @@ function initCounterAnimation() {
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                animateCounter(entry.target);
+                // Add slight delay for staggered effect
+                const index = Array.from(statNumbers).indexOf(entry.target);
+                setTimeout(() => {
+                    animateCounter(entry.target);
+                }, index * 200);
                 observer.unobserve(entry.target);
             }
         });
@@ -333,6 +343,47 @@ function initBackToTop() {
             top: 0,
             behavior: 'smooth'
         });
+    });
+}
+
+/**
+ * Slide Animations for specific elements
+ */
+function initSlideAnimations() {
+    // About section - slide in from sides
+    const aboutText = document.querySelector('.about-text');
+    const aboutImage = document.querySelector('.about-image');
+
+    if (aboutText) {
+        aboutText.classList.add('slide-in-left');
+    }
+    if (aboutImage) {
+        aboutImage.classList.add('slide-in-right');
+    }
+
+    // CTA content slide in
+    const ctaContent = document.querySelector('.cta-content');
+    if (ctaContent) {
+        ctaContent.classList.add('slide-in-left');
+    }
+
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -100px 0px',
+        threshold: 0.2
+    };
+
+    const slideObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                slideObserver.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.slide-in-left, .slide-in-right').forEach(el => {
+        slideObserver.observe(el);
     });
 }
 
