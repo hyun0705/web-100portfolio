@@ -645,10 +645,11 @@ h1, h2, h3, h4, h5, h6 {
 .stat-label {
     display: block;
     font-size: 0.875rem;
-    color: var(--gray);
-    margin-top: 0.25rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: -0.25rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
 .hero-scroll {
@@ -893,7 +894,15 @@ h1, h2, h3, h4, h5, h6 {
     background-color: var(--dark);
 }
 
-.trainer-grid {
+.trainer-slider-wrapper {
+    position: relative;
+}
+
+.trainer-slider {
+    overflow: visible;
+}
+
+.trainer-track {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
@@ -1019,23 +1028,63 @@ h1, h2, h3, h4, h5, h6 {
    REVIEW SECTION
 =================================== */
 .review {
-    padding: 8rem 5%;
+    padding: 8rem 8%;
     background-color: var(--dark);
+}
+
+.review-slider-wrapper {
+    margin-top: 3rem;
+    position: relative;
+    padding: 0 50px;
     overflow: hidden;
 }
 
 .review-slider {
-    margin-top: 3rem;
     overflow: visible;
+    margin: 0 5%;
+}
+
+.slider-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 36px;
+    height: 36px;
+    background: var(--primary);
+    border: none;
+    border-radius: 50%;
+    color: var(--white);
+    font-size: 0.875rem;
+    cursor: pointer;
+    z-index: 10;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slider-btn:hover {
+    background: var(--primary-dark);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.slider-prev {
+    left: 0;
+}
+
+.slider-next {
+    right: 0;
 }
 
 .review-track {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    display: flex;
     gap: 1.5rem;
+    transition: transform 0.5s ease;
 }
 
 .review-card {
+    flex: 0 0 calc(30% - 1rem);
+    min-width: calc(30% - 1rem);
     background-color: var(--dark-gray);
     padding: 2rem;
     transition: var(--transition);
@@ -1376,7 +1425,7 @@ h1, h2, h3, h4, h5, h6 {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .trainer-grid {
+    .trainer-track {
         grid-template-columns: repeat(2, 1fr);
     }
 
@@ -1390,8 +1439,9 @@ h1, h2, h3, h4, h5, h6 {
         grid-row: span 1;
     }
 
-    .review-track {
-        grid-template-columns: repeat(2, 1fr);
+    .review-card {
+        flex: 0 0 calc(50% - 0.75rem);
+        min-width: calc(50% - 0.75rem);
     }
 
     .footer-nav {
@@ -1461,16 +1511,17 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     .section-header {
-        margin-bottom: 3rem;
+        margin-bottom: 2rem;
         padding: 0 1rem;
     }
 
     .section-title {
         text-wrap: auto;
+        margin-bottom: 0.75rem;
     }
 
     .about {
-        padding: 5rem 1.5rem;
+        padding: 3.5rem 1.5rem;
     }
 
     .about-grid {
@@ -1495,7 +1546,7 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     .program {
-        padding: 5rem 1.5rem;
+        padding: 3.5rem 1.5rem;
     }
 
     .program-grid {
@@ -1504,12 +1555,26 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     .trainer {
-        padding: 5rem 1.5rem;
+        padding: 3.5rem 1.5rem;
     }
 
-    .trainer-grid {
-        grid-template-columns: 1fr;
-        gap: 2.5rem;
+    .trainer-slider-wrapper {
+        overflow: hidden;
+    }
+
+    .trainer-slider {
+        padding: 0 7.5%;
+    }
+
+    .trainer-track {
+        display: flex;
+        gap: 1rem;
+        transition: transform 0.5s ease;
+    }
+
+    .trainer-card {
+        flex: 0 0 100%;
+        min-width: 100%;
     }
 
     .trainer-image {
@@ -1518,7 +1583,7 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     .facility {
-        padding: 5rem 1.5rem;
+        padding: 3.5rem 1.5rem;
     }
 
     .facility-gallery {
@@ -1532,15 +1597,24 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     .review {
-        padding: 5rem 1.5rem;
+        padding: 3.5rem 1.5rem;
     }
 
-    .review-track {
-        grid-template-columns: 1fr;
+    .review-slider-wrapper {
+        padding: 0;
+    }
+
+    .slider-btn {
+        display: none;
+    }
+
+    .review-card {
+        flex: 0 0 100%;
+        min-width: 100%;
     }
 
     .cta {
-        padding: 5rem 1.5rem;
+        padding: 3.5rem 1.5rem;
     }
 
     .cta-buttons {

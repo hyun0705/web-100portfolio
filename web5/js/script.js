@@ -259,4 +259,155 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Run preload after page load
     window.addEventListener('load', preloadImages);
+
+    // Review Slider - Infinite Loop
+    const reviewTrack = document.querySelector('.review-track');
+    const reviewCards = document.querySelectorAll('.review-card');
+    const prevBtn = document.querySelector('.slider-prev');
+    const nextBtn = document.querySelector('.slider-next');
+    let currentSlide = 0;
+    let autoSlideInterval;
+    let originalCardsCount = reviewCards.length;
+
+    // Clone cards for infinite loop
+    function setupInfiniteSlider() {
+        if (!reviewTrack || reviewCards.length === 0) return;
+
+        // Clone all cards and append to track
+        reviewCards.forEach(function(card) {
+            const clone = card.cloneNode(true);
+            reviewTrack.appendChild(clone);
+        });
+    }
+
+    function getSlideWidth() {
+        const cards = document.querySelectorAll('.review-card');
+        if (cards.length === 0) return 0;
+        const card = cards[0];
+        const width = card.offsetWidth;
+        const gap = 24; // 1.5rem = 24px
+        return width + gap;
+    }
+
+    function goToSlide(index) {
+        const offset = index * getSlideWidth();
+        reviewTrack.style.transition = 'transform 0.5s ease';
+        reviewTrack.style.transform = 'translateX(-' + offset + 'px)';
+    }
+
+    function moveSlideNext() {
+        currentSlide++;
+        goToSlide(currentSlide);
+
+        // Reset to start when reaching cloned cards
+        if (currentSlide >= originalCardsCount) {
+            setTimeout(function() {
+                reviewTrack.style.transition = 'none';
+                currentSlide = 0;
+                reviewTrack.style.transform = 'translateX(0)';
+            }, 500);
+        }
+    }
+
+    function moveSlidePrev() {
+        currentSlide--;
+        if (currentSlide < 0) {
+            currentSlide = originalCardsCount - 1;
+        }
+        goToSlide(currentSlide);
+    }
+
+    function startAutoSlide() {
+        autoSlideInterval = setInterval(moveSlideNext, 3000);
+    }
+
+    function stopAutoSlide() {
+        clearInterval(autoSlideInterval);
+    }
+
+    // Initialize slider
+    if (reviewTrack && reviewCards.length > 0) {
+        setupInfiniteSlider();
+        startAutoSlide();
+
+        // Prev/Next buttons
+        if (prevBtn) {
+            prevBtn.addEventListener('click', function() {
+                stopAutoSlide();
+                moveSlidePrev();
+                startAutoSlide();
+            });
+        }
+
+        if (nextBtn) {
+            nextBtn.addEventListener('click', function() {
+                stopAutoSlide();
+                moveSlideNext();
+                startAutoSlide();
+            });
+        }
+
+        // Pause on hover
+        reviewTrack.addEventListener('mouseenter', stopAutoSlide);
+        reviewTrack.addEventListener('mouseleave', startAutoSlide);
+
+        // Update on resize
+        window.addEventListener('resize', function() {
+            currentSlide = 0;
+            reviewTrack.style.transition = 'none';
+            reviewTrack.style.transform = 'translateX(0)';
+        });
+    }
+
+    // Trainer Slider (Mobile Only)
+    const trainerTrack = document.querySelector('.trainer-track');
+    const trainerCards = document.querySelectorAll('.trainer-card');
+    let trainerSlide = 0;
+    let trainerAutoSlide;
+
+    function isMobile() {
+        return window.innerWidth <= 768;
+    }
+
+    function getTrainerSlideWidth() {
+        if (trainerCards.length === 0) return 0;
+        const card = trainerCards[0];
+        const gap = 16; // 1rem
+        return card.offsetWidth + gap;
+    }
+
+    function moveTrainerSlide() {
+        if (!isMobile()) return;
+
+        trainerSlide++;
+        if (trainerSlide >= trainerCards.length) {
+            trainerSlide = 0;
+        }
+        const offset = trainerSlide * getTrainerSlideWidth();
+        trainerTrack.style.transition = 'transform 0.5s ease';
+        trainerTrack.style.transform = 'translateX(-' + offset + 'px)';
+    }
+
+    function startTrainerSlide() {
+        if (isMobile()) {
+            trainerAutoSlide = setInterval(moveTrainerSlide, 3000);
+        }
+    }
+
+    function stopTrainerSlide() {
+        clearInterval(trainerAutoSlide);
+    }
+
+    // Initialize trainer slider
+    if (trainerTrack && trainerCards.length > 0) {
+        startTrainerSlide();
+
+        window.addEventListener('resize', function() {
+            stopTrainerSlide();
+            trainerSlide = 0;
+            trainerTrack.style.transition = 'none';
+            trainerTrack.style.transform = 'translateX(0)';
+            startTrainerSlide();
+        });
+    }
 });
