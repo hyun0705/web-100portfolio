@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const mobileMenu = document.querySelector('.mobile-menu');
     const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
     const topBtn = document.querySelector('.top-btn');
-    const fadeElements = document.querySelectorAll('.fade-in');
+    const fadeElements = document.querySelectorAll('.fade-in, .slide-left, .slide-right, .scale-in, .stagger');
 
     // Header scroll effect
     function handleHeaderScroll() {
