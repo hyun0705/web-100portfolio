@@ -1455,6 +1455,7 @@ h1, h2, h3, h4, h5, h6 {
 
     .hero {
         min-height: 100svh;
+        padding-top: 60px;
     }
 
     .hero-content {
