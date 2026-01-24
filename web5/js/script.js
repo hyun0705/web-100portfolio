@@ -217,17 +217,6 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', animateStats, { passive: true });
     animateStats(); // Initial check
 
-    // Parallax effect for hero background
-    const heroBg = document.querySelector('.hero-bg img');
-
-    if (heroBg) {
-        window.addEventListener('scroll', function() {
-            const scrolled = window.scrollY;
-            if (scrolled < window.innerHeight) {
-                heroBg.style.transform = 'translateY(' + (scrolled * 0.3) + 'px)';
-            }
-        }, { passive: true });
-    }
 
     // Program card hover effect for touch devices
     const programCards = document.querySelectorAll('.program-card');
