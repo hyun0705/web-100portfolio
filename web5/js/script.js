@@ -224,7 +224,7 @@ document.addEventListener('DOMContentLoaded', function() {
         window.addEventListener('scroll', function() {
             const scrolled = window.scrollY;
             if (scrolled < window.innerHeight) {
-                heroBg.style.transform = 'translateY(' + (scrolled * 0.3) + 'px) scale(1.1)';
+                heroBg.style.transform = 'translateY(' + (scrolled * 0.3) + 'px)';
             }
         }, { passive: true });
     }
@@ -300,7 +300,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function startAutoSlide() {
-        autoSlideInterval = setInterval(moveSlideNext, 4000);
+        autoSlideInterval = setInterval(moveSlideNext, 3000);
     }
 
     function stopAutoSlide() {
