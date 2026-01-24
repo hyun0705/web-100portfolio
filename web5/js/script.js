@@ -260,103 +260,59 @@ document.addEventListener('DOMContentLoaded', function() {
     // Run preload after page load
     window.addEventListener('load', preloadImages);
 
-    // Review Slider - Infinite Loop
+    // Review Slider - True Infinite Loop
     const reviewTrack = document.querySelector('.review-track');
-    const reviewCards = document.querySelectorAll('.review-card');
-    const prevBtn = document.querySelector('.slider-prev');
-    const nextBtn = document.querySelector('.slider-next');
-    let currentSlide = 0;
     let autoSlideInterval;
-    let originalCardsCount = reviewCards.length;
-
-    // Clone cards for infinite loop
-    function setupInfiniteSlider() {
-        if (!reviewTrack || reviewCards.length === 0) return;
-
-        // Clone all cards and append to track
-        reviewCards.forEach(function(card) {
-            const clone = card.cloneNode(true);
-            reviewTrack.appendChild(clone);
-        });
-    }
 
     function getSlideWidth() {
-        const cards = document.querySelectorAll('.review-card');
-        if (cards.length === 0) return 0;
-        const card = cards[0];
-        const width = card.offsetWidth;
-        const gap = 24; // 1.5rem = 24px
-        return width + gap;
+        const firstCard = reviewTrack.querySelector('.review-card');
+        if (!firstCard) return 0;
+        const gap = 32;
+        return firstCard.offsetWidth + gap;
     }
 
-    function goToSlide(index) {
-        const offset = index * getSlideWidth();
-        reviewTrack.style.transition = 'transform 0.5s ease';
-        reviewTrack.style.transform = 'translateX(-' + offset + 'px)';
+    function setupSlider() {
+        // 마지막 카드를 맨 앞으로 이동 (왼쪽에 보이도록)
+        const cards = reviewTrack.querySelectorAll('.review-card');
+        const lastCard = cards[cards.length - 1];
+        reviewTrack.insertBefore(lastCard, cards[0]);
+
+        // 초기 위치를 왼쪽으로 이동 (마지막 카드가 왼쪽에 보이도록)
+        reviewTrack.style.transform = 'translateX(-' + getSlideWidth() + 'px)';
     }
 
     function moveSlideNext() {
-        currentSlide++;
-        goToSlide(currentSlide);
+        const slideWidth = getSlideWidth();
+        const currentTransform = new WebKitCSSMatrix(getComputedStyle(reviewTrack).transform);
+        const currentX = currentTransform.m41;
 
-        // Reset to start when reaching cloned cards
-        if (currentSlide >= originalCardsCount) {
-            setTimeout(function() {
-                reviewTrack.style.transition = 'none';
-                currentSlide = 0;
-                reviewTrack.style.transform = 'translateX(0)';
-            }, 500);
-        }
-    }
+        // Animate slide
+        reviewTrack.style.transition = 'transform 0.5s ease';
+        reviewTrack.style.transform = 'translateX(' + (currentX - slideWidth) + 'px)';
 
-    function moveSlidePrev() {
-        currentSlide--;
-        if (currentSlide < 0) {
-            currentSlide = originalCardsCount - 1;
-        }
-        goToSlide(currentSlide);
+        // After animation, move first card to end and reset position
+        setTimeout(function() {
+            const firstCard = reviewTrack.querySelector('.review-card');
+            reviewTrack.appendChild(firstCard);
+            reviewTrack.style.transition = 'none';
+            reviewTrack.style.transform = 'translateX(-' + slideWidth + 'px)';
+        }, 500);
     }
 
     function startAutoSlide() {
-        autoSlideInterval = setInterval(moveSlideNext, 3000);
+        autoSlideInterval = setInterval(moveSlideNext, 4000);
     }
 
     function stopAutoSlide() {
         clearInterval(autoSlideInterval);
     }
 
-    // Initialize slider
-    if (reviewTrack && reviewCards.length > 0) {
-        setupInfiniteSlider();
+    if (reviewTrack) {
+        setupSlider();
         startAutoSlide();
 
-        // Prev/Next buttons
-        if (prevBtn) {
-            prevBtn.addEventListener('click', function() {
-                stopAutoSlide();
-                moveSlidePrev();
-                startAutoSlide();
-            });
-        }
-
-        if (nextBtn) {
-            nextBtn.addEventListener('click', function() {
-                stopAutoSlide();
-                moveSlideNext();
-                startAutoSlide();
-            });
-        }
-
-        // Pause on hover
         reviewTrack.addEventListener('mouseenter', stopAutoSlide);
         reviewTrack.addEventListener('mouseleave', startAutoSlide);
-
-        // Update on resize
-        window.addEventListener('resize', function() {
-            currentSlide = 0;
-            reviewTrack.style.transition = 'none';
-            reviewTrack.style.transform = 'translateX(0)';
-        });
     }
 
     // Trainer Slider (Mobile Only)
